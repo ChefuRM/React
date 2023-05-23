@@ -21,7 +21,7 @@ export default function Login ({ navigation, route }:LoginScreenType) {
     const { password, username } = form
     console.log(username, password)
     if (username === 'Eduardo' && password === '1234') {
-      navigation.navigate('Home')
+      navigation.replace('Home')
     }
   }, [navigation])
   return (

@@ -1,4 +1,4 @@
-import { Text } from 'react-native'
+import { Text, View } from 'react-native'
 
 import { createDrawerNavigator } from '@react-navigation/drawer'
 import { HomeScreens } from './types.home'
@@ -24,17 +24,8 @@ export default function Home ({ navigation, route }:HomeScreenType) {
           sceneContainerStyle: {
             backgroundColor: palette.primary
           },
-          headerTransparent: true,
-          headerTintColor: palette.secondary,
-          drawerContentContainerStyle: {
-            backgroundColor: palette.complementary1
-          },
-          drawerContentStyle: {
-            backgroundColor: palette.complementary2
-          },
-          drawerActiveBackgroundColor: palette.auxiliary,
-          drawerActiveTintColor: palette.complementary2,
-          drawerInactiveTintColor: palette.white
+          // headerTransparent: true,
+          headerBackground: () => <View style={{ backgroundColor: palette.primary }} />
         }}
       >
         <Screen

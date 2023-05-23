@@ -6,5 +6,41 @@ export type AppNavigationType = {
 
 }
 
+export interface Cliente {
+    nombre: string
+    apellido: string
+    telefono: string
+    direccion: string
+    cui: number
+}
+
+export interface Usuario {
+    nombre: string,
+    apellido: string,
+    password: string,
+    id: number
+}
+
+export interface Vehiculo {
+    year: string,
+    modelo: string,
+    marca: string,
+    color: string,
+    placa: string
+}
+
+export interface Repartidor {
+    nombre: string,
+    apellido: string,
+    licencia: string,
+    telefono: string,
+    cui: string
+}
+
+export interface Stock {
+    correlativo: number,
+    fechaDeIngreso: string
+}
+
 export type LoginScreenType = NativeStackScreenProps<AppNavigationType, 'Login'>
 export type HomeScreenType = NativeStackScreenProps<AppNavigationType, 'Home'>
