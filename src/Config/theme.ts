@@ -1,11 +1,11 @@
 import { PixelRatio } from 'react-native'
 
 export const palette = {
-  primary: '#393D3E',
-  secondary: '#48B5CF',
-  auxiliary: '#EFF0F2',
-  complementary1: '#41B490',
-  complementary2: '#398C74',
+  primary: '#F2D6B3',
+  secondary: '#A62929',
+  auxiliary: '#D9B596',
+  complementary1: '#8C6751',
+  complementary2: '#0D0D0D',
   white: '#FFFF',
   error: 'red'
 }

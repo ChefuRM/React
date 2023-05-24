@@ -1,4 +1,4 @@
-import { Cliente } from '../../types.global'
+import { Cliente, Repartidor, Stock, Usuario, Vehiculo } from '../../types.global'
 
 export const clientes: Cliente[] = [
   {
@@ -42,20 +42,6 @@ export const clientes: Cliente[] = [
     telefono: '123456789',
     direccion: '123 Main St',
     cui: 1234567890123
-  },
-  {
-    nombre: 'John',
-    apellido: 'Doe',
-    telefono: '123456789',
-    direccion: '123 Main St',
-    cui: 1234567890123
-  },
-  {
-    nombre: 'John',
-    apellido: 'Doe',
-    telefono: '123456789',
-    direccion: '123 Main St',
-    cui: 1234567890123
   }
 ]
 export const vehiculos: Vehiculo[] = [
@@ -65,6 +51,13 @@ export const vehiculos: Vehiculo[] = [
     marca: 'MAZDA',
     color: '#000',
     placa: '31PDAD92'
+  },
+  {
+    year: '2023',
+    modelo: 'PICKUP',
+    marca: 'TOYOTA',
+    color: '#000',
+    placa: '31PDDD92'
   }
 ]
 export const repartidores: Repartidor[] = [
@@ -153,9 +146,21 @@ export const stock: Stock[] = [
 ]
 export const usuarios: Usuario[] = [
   {
-    nombre: 'luis',
-    apellido: 'dasda',
+    nombre: 'pepe',
+    apellido: 'grillo',
     password: '1234',
     id: 1
+  },
+  {
+    nombre: 'pancho',
+    apellido: 'cruz',
+    password: '1234',
+    id: 2
+  },
+  {
+    nombre: 'luca',
+    apellido: 'vasquez',
+    password: '1234',
+    id: 3
   }
 ]
