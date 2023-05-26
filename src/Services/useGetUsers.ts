@@ -1,10 +1,12 @@
-import { useState } from 'react'
-import { Cliente } from '../../types.global'
+import { useEffect, useState } from 'react'
+import { Usuario } from '../../types.global'
 import { API_CODES, API_URL_PROD } from '../Config/API'
+import { string } from 'yup'
+import { set } from 'react-hook-form'
 
 interface API_RESPONSE{
     code: number,
-    data: Cliente[],
+    data: Usuario[],
     message: string
 }
 const DEFAULT_RESPONSE = {
@@ -13,12 +15,12 @@ const DEFAULT_RESPONSE = {
   message: ''
 }
 
-export const useGetClients = () => {
+export const useGetUsers = () => {
   const [loading, setLoading] = useState(false)
-  const [clients, setClients] = useState<API_RESPONSE>(DEFAULT_RESPONSE)
-  const getClients = async () => {
+  const [users, setUsers] = useState<API_RESPONSE>(DEFAULT_RESPONSE)
+  const getUsers = async () => {
     setLoading(true)
-    return globalThis.fetch(`${API_URL_PROD}/clients`,
+    return globalThis.fetch(`${API_URL_PROD}/users`,
       {
         method: 'GET'
       })
@@ -27,7 +29,7 @@ export const useGetClients = () => {
         setLoading(false)
         console.log(response)
         if (Array.isArray(response)) {
-          setClients({
+          setUsers({
             code: API_CODES.ok,
             data: response,
             message: ''
@@ -36,7 +38,7 @@ export const useGetClients = () => {
 
           }
         }
-        setClients({
+        setUsers({
           code: API_CODES.dataEmpty,
           data: [],
           message: ''
@@ -46,7 +48,7 @@ export const useGetClients = () => {
         }
       })
       .catch((err: Error) => {
-        setClients({
+        setUsers({
           code: API_CODES.error,
           data: [],
           message: err.message
@@ -58,8 +60,8 @@ export const useGetClients = () => {
   }
 
   return {
-    clients,
-    getClients,
+    users,
+    getUsers,
     loading
   }
 }

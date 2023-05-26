@@ -1,10 +1,10 @@
 import { useState } from 'react'
-import { Cliente } from '../../types.global'
+import { Repartidor } from '../../types.global'
 import { API_CODES, API_URL_PROD } from '../Config/API'
 
 interface API_RESPONSE{
     code: number,
-    data: Cliente[],
+    data: Repartidor[],
     message: string
 }
 const DEFAULT_RESPONSE = {
@@ -13,12 +13,12 @@ const DEFAULT_RESPONSE = {
   message: ''
 }
 
-export const useGetClients = () => {
+export const useGetDeliverys = () => {
   const [loading, setLoading] = useState(false)
-  const [clients, setClients] = useState<API_RESPONSE>(DEFAULT_RESPONSE)
-  const getClients = async () => {
+  const [deliverys, setDeliverys] = useState<API_RESPONSE>(DEFAULT_RESPONSE)
+  const getDeliverys = async () => {
     setLoading(true)
-    return globalThis.fetch(`${API_URL_PROD}/clients`,
+    return globalThis.fetch(`${API_URL_PROD}/repartidores`,
       {
         method: 'GET'
       })
@@ -27,7 +27,7 @@ export const useGetClients = () => {
         setLoading(false)
         console.log(response)
         if (Array.isArray(response)) {
-          setClients({
+          setDeliverys({
             code: API_CODES.ok,
             data: response,
             message: ''
@@ -36,7 +36,7 @@ export const useGetClients = () => {
 
           }
         }
-        setClients({
+        setDeliverys({
           code: API_CODES.dataEmpty,
           data: [],
           message: ''
@@ -46,7 +46,7 @@ export const useGetClients = () => {
         }
       })
       .catch((err: Error) => {
-        setClients({
+        setDeliverys({
           code: API_CODES.error,
           data: [],
           message: err.message
@@ -58,8 +58,8 @@ export const useGetClients = () => {
   }
 
   return {
-    clients,
-    getClients,
+    deliverys,
+    getDeliverys,
     loading
   }
 }
