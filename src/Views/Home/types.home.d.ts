@@ -5,5 +5,5 @@ export type HomeScreens={
     Pedidos: undefined;
     Vehiculos: undefined;
     Reportes: undefined;
-
+    Dropdown: undefined;
 }

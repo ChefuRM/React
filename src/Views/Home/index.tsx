@@ -1,4 +1,4 @@
-import { Text, View } from 'react-native'
+import { View } from 'react-native'
 
 import { createDrawerNavigator } from '@react-navigation/drawer'
 import { HomeScreens } from './types.home'
@@ -28,6 +28,7 @@ export default function Home ({ navigation, route }:HomeScreenType) {
           headerBackground: () => <View style={{ backgroundColor: palette.primary }} />
         }}
       >
+
         <Screen
           name='Usuarios'
           component={Usuarios}
@@ -52,6 +53,7 @@ export default function Home ({ navigation, route }:HomeScreenType) {
           name='Repartidores'
           component={Repartidores}
         />
+
       </Navigator>
     </>
   )
