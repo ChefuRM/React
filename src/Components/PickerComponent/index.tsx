@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { View, TouchableOpacity, Text, FlatList, Modal } from 'react-native'
-import { palette, fonts } from '../../Config/theme'
+import { palette } from '../../Config/theme'
 
 interface DropdownButtonProps {
   options: string[];

@@ -1,23 +1,11 @@
-import { useEffect, useState } from 'react'
-import { Usuario } from '../../types.global'
-import { API_CODES, API_URL_PROD } from '../Config/API'
-import { string } from 'yup'
-import { set } from 'react-hook-form'
-
-interface API_RESPONSE{
-    code: number,
-    data: Usuario[],
-    message: string
-}
-const DEFAULT_RESPONSE = {
-  code: API_CODES.dataEmpty,
-  data: [],
-  message: ''
-}
+import { useState } from 'react'
+import { API_URL_PROD } from '../Config/API'
+import { addUsers } from '../Storage/Reduce'
+import { useDispatch } from 'react-redux'
 
 export const useGetUsers = () => {
+  const SaveData = useDispatch()
   const [loading, setLoading] = useState(false)
-  const [users, setUsers] = useState<API_RESPONSE>(DEFAULT_RESPONSE)
   const getUsers = async () => {
     setLoading(true)
     return globalThis.fetch(`${API_URL_PROD}/users`,
@@ -29,30 +17,16 @@ export const useGetUsers = () => {
         setLoading(false)
         console.log(response)
         if (Array.isArray(response)) {
-          setUsers({
-            code: API_CODES.ok,
-            data: response,
-            message: ''
-          })
+          SaveData(addUsers(response))
           return {
 
           }
         }
-        setUsers({
-          code: API_CODES.dataEmpty,
-          data: [],
-          message: ''
-        })
         return {
 
         }
       })
-      .catch((err: Error) => {
-        setUsers({
-          code: API_CODES.error,
-          data: [],
-          message: err.message
-        })
+      .catch(() => {
         return {
 
         }
@@ -60,7 +34,6 @@ export const useGetUsers = () => {
   }
 
   return {
-    users,
     getUsers,
     loading
   }

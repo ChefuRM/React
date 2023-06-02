@@ -6,6 +6,7 @@ import { ReduxStore } from '../../../../Storage/Store'
 import { View, Text, TouchableOpacity, Modal, Alert } from 'react-native'
 import { ClientForm } from './Components/ClientsForm'
 import { useGetClients } from '../../../../Services/useGetClients'
+import { palette } from '../../../../Config/theme'
 
 const URL_ADD = `${API_URL_PROD}/clients/add`
 
@@ -63,7 +64,16 @@ export default function Clientes () {
       </Modal>
 
       <TouchableOpacity onPress={handleToggleModal}>
-        <Text>Agregar un Cliente</Text>
+        <Text style={{
+          backgroundColor: palette.complementary1,
+          padding: 10,
+          borderRadius: 13,
+          margin: 10,
+          textAlign: 'center',
+          color: 'white'
+        }}
+        >Agregar un Cliente
+        </Text>
       </TouchableOpacity>
     </View>
   )
