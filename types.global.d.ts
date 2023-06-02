@@ -42,5 +42,14 @@ export interface Stock {
     fechaDeIngreso: string
 }
 
+export interface BD {
+    Clientes: Array<Cliente>
+    Usuarios: Array<Usuario>
+    Vehiculos: Array<Vehiculo>
+    Repartidores: Array<Repartidor>
+    Stock: Array<Stock>
+    Auth: boolean
+}
+
 export type LoginScreenType = NativeStackScreenProps<AppNavigationType, 'Login'>
 export type HomeScreenType = NativeStackScreenProps<AppNavigationType, 'Home'>

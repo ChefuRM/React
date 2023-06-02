@@ -1,21 +1,12 @@
 import { useState } from 'react'
-import { Cliente } from '../../types.global'
-import { API_CODES, API_URL_PROD } from '../Config/API'
-
-interface API_RESPONSE{
-    code: number,
-    data: Cliente[],
-    message: string
-}
-const DEFAULT_RESPONSE = {
-  code: API_CODES.dataEmpty,
-  data: [],
-  message: ''
-}
+import { API_URL_PROD } from '../Config/API'
+import { addClients } from '../Storage/Reduce'
+import { useDispatch } from 'react-redux'
 
 export const useGetClients = () => {
+  const SaveData = useDispatch()
   const [loading, setLoading] = useState(false)
-  const [clients, setClients] = useState<API_RESPONSE>(DEFAULT_RESPONSE)
+  // const [clients, setClients] = useState<API_RESPONSE>(DEFAULT_RESPONSE)
   const getClients = async () => {
     setLoading(true)
     return globalThis.fetch(`${API_URL_PROD}/clients`,
@@ -27,30 +18,16 @@ export const useGetClients = () => {
         setLoading(false)
         console.log(response)
         if (Array.isArray(response)) {
-          setClients({
-            code: API_CODES.ok,
-            data: response,
-            message: ''
-          })
+          SaveData(addClients(response))
           return {
 
           }
         }
-        setClients({
-          code: API_CODES.dataEmpty,
-          data: [],
-          message: ''
-        })
         return {
 
         }
       })
-      .catch((err: Error) => {
-        setClients({
-          code: API_CODES.error,
-          data: [],
-          message: err.message
-        })
+      .catch(() => {
         return {
 
         }
@@ -58,7 +35,6 @@ export const useGetClients = () => {
   }
 
   return {
-    clients,
     getClients,
     loading
   }
