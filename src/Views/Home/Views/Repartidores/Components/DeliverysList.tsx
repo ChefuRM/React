@@ -30,12 +30,6 @@ export const DeliveryList = ({ data, loading = false, onRefresh }: {data:Reparti
         refreshControl={<RefreshControl refreshing={loading} onRefresh={onRefresh} />}
 
       />
-      <View>
-        <DropdownButton
-          options={['Opcion 1', 'Opcion 2', 'Opcion 3']}
-          onSelect={() => {}}
-        />
-      </View>
     </>
   )
 }

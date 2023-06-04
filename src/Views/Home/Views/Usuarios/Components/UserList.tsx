@@ -30,12 +30,6 @@ export const UserList = ({ data, loading = false, onRefresh }: {data:Usuario[], 
         refreshControl={<RefreshControl refreshing={loading} onRefresh={onRefresh} />}
 
       />
-      <View>
-        <DropdownButton
-          options={['Opcion 1', 'Opcion 2', 'Opcion 3']}
-          onSelect={() => {}}
-        />
-      </View>
     </>
   )
 }
