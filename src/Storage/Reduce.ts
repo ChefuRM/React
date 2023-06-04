@@ -6,7 +6,8 @@ const initialState: BD = {
   Repartidores: [],
   Stock: [],
   Usuarios: [],
-  Vehiculos: []
+  Vehiculos: [],
+  Pedidos: []
 }
 export const configDB = createSlice({
   name: 'configDB',
@@ -47,6 +48,13 @@ export const configDB = createSlice({
         Vehiculos: payload
       }
     },
+    addPedidos: (state, action) => {
+      const { payload } = action
+      return {
+        ...state,
+        Pedidos: payload
+      }
+    },
     authenticate: (state, action) => {
       return {
         ...state,
@@ -62,7 +70,8 @@ export const {
   addRepartidores,
   addStock,
   addUsers,
-  addVehicles
+  addVehicles,
+  addPedidos
 } = configDB.actions
 
 export default configDB.reducer

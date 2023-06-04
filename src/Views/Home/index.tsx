@@ -5,7 +5,6 @@ import { HomeScreens } from './types.home'
 import { HomeScreenType } from '../../../types.global'
 import Usuarios from './Views/Usuarios'
 import Reportes from './Views/Reportes'
-import { ScreenContainer } from 'react-native-screens'
 import { palette } from '../../Config/theme'
 import Clientes from './Views/Clientes'
 import Vehiculos from './Views/Vehiculos'
@@ -13,7 +12,7 @@ import Pedidos from './Views/Pedidos'
 import Repartidores from './Views/Repartidores'
 import DrawerComponent from '../../Components/DrawerComponent'
 
-const { Navigator, Group, Screen } = createDrawerNavigator<HomeScreens>()
+const { Navigator, Screen } = createDrawerNavigator<HomeScreens>()
 
 export default function Home ({ navigation, route }:HomeScreenType) {
   return (

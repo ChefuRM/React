@@ -41,13 +41,25 @@ export interface Stock {
     correlativo: number,
     fechaDeIngreso: string
 }
-
+export interface Pedido {
+    numeroPedido: string,
+    departamentoOrigen: string,
+    departamentoDestino: string,
+    fechaInicio: string,
+    cliente: string,
+    repartidor: string,
+    vehiculo: string,
+    cajasProducto: string[],
+    numeroCajas: number,
+    estado: 'Completado' | 'Pendiente'
+  }
 export interface BD {
     Clientes: Array<Cliente>
     Usuarios: Array<Usuario>
     Vehiculos: Array<Vehiculo>
     Repartidores: Array<Repartidor>
     Stock: Array<Stock>
+    Pedidos: Array<Pedido>
     Auth: boolean
 }
 

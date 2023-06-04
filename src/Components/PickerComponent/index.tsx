@@ -5,9 +5,10 @@ import { palette } from '../../Config/theme'
 interface DropdownButtonProps {
   options: string[];
   onSelect: (option: string) => void;
+  value: string
 }
 
-const DropdownButton: React.FC<DropdownButtonProps> = ({ options, onSelect }) => {
+const DropdownButton: React.FC<DropdownButtonProps> = ({ options, onSelect, value }) => {
   const [modalVisible, setModalVisible] = useState(false)
 
   const handleSelectOption = (option: string) => {
@@ -40,7 +41,7 @@ const DropdownButton: React.FC<DropdownButtonProps> = ({ options, onSelect }) =>
           margin: 10
         }}
       >
-        <Text style={{ color: 'white', textAlign: 'center' }}>Abrir Menú</Text>
+        <Text style={{ color: 'white', textAlign: 'center' }}>Abrir C/R/V</Text>
       </TouchableOpacity>
       <Modal
         visible={modalVisible}
